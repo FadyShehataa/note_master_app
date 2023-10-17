@@ -23,25 +23,28 @@ class NoteItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(defaultRadius),
       ),
       color: color,
-      child: ListTile(
-        title: Text(
-          title,
-          style: Styles.textStyle16.copyWith(fontWeight: FontWeight.w600),
-        ),
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 15),
-            Text(
-              description,
-              style: Styles.textStyle14,
-            ),
-            const SizedBox(height: 10),
-            Text(
-              "Created at ${DateFormat("d MMM yyyy").format(DateTime.now())}",
-              style: Styles.textStyle11,
-            ),
-          ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 6),
+        child: ListTile(
+          title: Text(
+            title,
+            style: Styles.textStyle16.copyWith(fontWeight: FontWeight.w600),
+          ),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 8),
+              Text(
+                description,
+                style: Styles.textStyle14,
+              ),
+              const SizedBox(height: 16),
+              Text(
+                "Created at ${DateFormat("d MMM yyyy").format(DateTime.now())}",
+                style: Styles.textStyle11,
+              ),
+            ],
+          ),
         ),
       ),
     );

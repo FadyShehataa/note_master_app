@@ -23,4 +23,11 @@ abstract class Styles {
     color: MyColors.myWhite,
     fontWeight: FontWeight.w400,
   );
+
+  static final textStyle36 = TextStyle(
+    fontSize: 36,
+    fontFamily: GoogleFonts.robotoSlab().fontFamily,
+    color: MyColors.myOrange,
+    fontWeight: FontWeight.w400,
+  );
 }

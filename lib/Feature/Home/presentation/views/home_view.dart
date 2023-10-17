@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:note_master_app/Core/utils/my_colors.dart';
+import 'package:note_master_app/Core/utils/styles.dart';
 import 'package:note_master_app/Feature/Home/presentation/views/add_note.dart';
 import 'package:note_master_app/Feature/Home/presentation/views/widgets/note_item.dart';
 
@@ -17,24 +18,15 @@ class HomeView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
           child: Column(
             children: [
-              const Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  'NoteMaster',
-                  style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+              Text(
+                'Note Master',
+                style: Styles.textStyle36,
               ),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
               TextField(
                 controller: searchController,
                 decoration: InputDecoration(
                   hintText: 'Search note',
-                  hintMaxLines: 1,
                   prefixIcon: const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: Icon(IconBroken.Search, size: 28),
@@ -47,27 +39,21 @@ class HomeView extends StatelessWidget {
                     borderRadius: BorderRadius.circular(32),
                     borderSide: BorderSide.none,
                   ),
-                  // fillColor: Colors.mySteelBlue.withOpacity(0.2),
                   filled: true,
-                  // hintStyle: Styles.textStyle18,
                 ),
-                // style: Styles.textStyle18,
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              const SizedBox(height: 10),
               Expanded(
                 child: ListView.separated(
                   itemBuilder: (context, index) => const NoteItem(
                     title: 'title',
                     description:
-                        'description description description description description description description description description description description description description description description description description description ',
+                        'Ut officia esse aliqua cupidatat culpa. Reprehenderit velit occaecat tempor officia aliquip sit. Id dolore pariatur ipsum id ipsum tempor consequat eiusmod Lorem adipisicing. Culpa eiusmod aute commodo nulla incididunt excepteur. Culpa commodo veniam magna sit deserunt fugiat cupidatat quis ad irure qui proident.',
                     color: MyColors.myOrange,
                   ),
                   itemCount: 10,
-                  separatorBuilder: (context, index) => const SizedBox(
-                    height: 10,
-                  ),
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 16),
                 ),
               ),
             ],
@@ -83,7 +69,7 @@ class HomeView extends StatelessWidget {
         },
         child: const Icon(
           Icons.add,
-          size: 32,
+          size: 24,
         ),
       ),
     );
