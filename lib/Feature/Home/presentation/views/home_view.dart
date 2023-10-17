@@ -4,6 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:note_master_app/Core/utils/constants.dart';
 import 'package:note_master_app/Core/utils/my_colors.dart';
 import 'package:note_master_app/Core/utils/styles.dart';
+import 'package:note_master_app/Feature/Home/presentation/manager/get_notes_cubit/get_notes_cubit.dart';
 import 'package:note_master_app/Feature/Home/presentation/manager/theme_cubit/theme_cubit.dart';
 import 'package:note_master_app/Feature/Home/presentation/views/add_note.dart';
 import 'package:note_master_app/Feature/Home/presentation/views/widgets/note_item.dart';
@@ -11,8 +12,20 @@ import 'package:note_master_app/Feature/Home/presentation/views/widgets/note_ite
 import '../../../../Core/utils/icon_broken.dart';
 import '../../data/models/note_model.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<GetNotesCubit>(context).fetchAllNotes();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +49,7 @@ class HomeView extends StatelessWidget {
                     onPressed: () {
                       themeCubit.changeTheme();
                       Box<NoteModel> notesBox = Hive.box<NoteModel>(kNotesBox);
-                      print(
-                          'length = ${notesBox.values.toList().length}');
+                      print('length = ${notesBox.values.toList().length}');
                     },
                     icon: themeCubit.isDark
                         ? const Icon(Icons.light_mode, size: 28)
@@ -66,18 +78,21 @@ class HomeView extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              Expanded(
-                child: ListView.separated(
-                  itemBuilder: (context, index) => const NoteItem(
-                    title: 'title',
-                    description:
-                        'Ut officia esse aliqua cupidatat culpa. Reprehenderit velit occaecat tempor officia aliquip sit. Id dolore pariatur ipsum id ipsum tempor consequat eiusmod Lorem adipisicing. Culpa eiusmod aute commodo nulla incididunt excepteur. Culpa commodo veniam magna sit deserunt fugiat cupidatat quis ad irure qui proident.',
-                    color: MyColors.myOrange,
-                  ),
-                  itemCount: 10,
-                  separatorBuilder: (context, index) =>
-                      const SizedBox(height: 16),
-                ),
+              BlocBuilder<GetNotesCubit, GetNotesState>(
+                builder: (context, state) {
+                  List<NoteModel> notes =
+                      BlocProvider.of<GetNotesCubit>(context).notes ?? [];
+                  return Expanded(
+                    child: ListView.separated(
+                      itemBuilder: (context, index) => NoteItem(
+                        noteModel: notes[index],
+                      ),
+                      itemCount: notes.length,
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(height: 16),
+                    ),
+                  );
+                },
               ),
             ],
           ),

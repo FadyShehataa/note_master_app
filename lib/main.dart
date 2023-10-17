@@ -5,6 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:note_master_app/Core/utils/constants.dart';
 import 'package:note_master_app/Feature/Home/data/models/note_model.dart';
 import 'package:note_master_app/Feature/Home/presentation/manager/add_note_cubit/add_note_cubit.dart';
+import 'package:note_master_app/Feature/Home/presentation/manager/get_notes_cubit/get_notes_cubit.dart';
 import 'package:note_master_app/Feature/Home/presentation/manager/theme_cubit/theme_cubit.dart';
 import 'package:note_master_app/simple_bloc_observer.dart';
 
@@ -32,8 +33,15 @@ class NoteMasterApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeCubit themeCubit = BlocProvider.of<ThemeCubit>(context, listen: true);
-    return BlocProvider(
-      create: (context) => AddNoteCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AddNoteCubit(),
+        ),
+        BlocProvider(
+          create: (context) => GetNotesCubit(),
+        ),
+      ],
       child: MaterialApp(
         theme: themeCubit.isDark ? ThemeData.dark() : ThemeData.light(),
         builder: DevicePreview.appBuilder,
