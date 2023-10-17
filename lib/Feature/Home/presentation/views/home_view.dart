@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note_master_app/Core/utils/my_colors.dart';
 import 'package:note_master_app/Core/utils/styles.dart';
+import 'package:note_master_app/Feature/Home/presentation/manager/theme_cubit/theme_cubit.dart';
 import 'package:note_master_app/Feature/Home/presentation/views/add_note.dart';
 import 'package:note_master_app/Feature/Home/presentation/views/widgets/note_item.dart';
 
@@ -11,6 +13,7 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeCubit themeCubit = BlocProvider.of<ThemeCubit>(context, listen: true);
     final TextEditingController searchController = TextEditingController();
     return Scaffold(
       body: SafeArea(
@@ -18,9 +21,21 @@ class HomeView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
           child: Column(
             children: [
-              Text(
-                'Note Master',
-                style: Styles.textStyle36,
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Note Master',
+                    style: Styles.textStyle36,
+                  ),
+                  IconButton(
+                    onPressed: () => themeCubit.changeTheme(),
+                    icon: themeCubit.isDark
+                        ? const Icon(Icons.light_mode, size: 28)
+                        : const Icon(Icons.dark_mode, size: 28),
+                  ),
+                ],
               ),
               const SizedBox(height: 10),
               TextField(

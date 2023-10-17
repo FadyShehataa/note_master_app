@@ -1,0 +1,17 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:equatable/equatable.dart';
+
+part 'theme_state.dart';
+
+class ThemeCubit extends Cubit<ThemeState> {
+  ThemeCubit() : super(ThemeInitial());
+
+  bool _isDark = false;
+  bool get isDark => _isDark;
+
+  void changeTheme() {
+    emit(ThemeChangedLoading());
+    _isDark = !_isDark;
+    emit(ThemeChangedSuccess());
+  }
+}
