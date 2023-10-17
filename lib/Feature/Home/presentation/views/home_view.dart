@@ -6,7 +6,7 @@ import 'package:note_master_app/Core/utils/my_colors.dart';
 import 'package:note_master_app/Core/utils/styles.dart';
 import 'package:note_master_app/Feature/Home/presentation/manager/get_notes_cubit/get_notes_cubit.dart';
 import 'package:note_master_app/Feature/Home/presentation/manager/theme_cubit/theme_cubit.dart';
-import 'package:note_master_app/Feature/Home/presentation/views/add_note.dart';
+import 'package:note_master_app/Feature/Home/presentation/views/add_note_view.dart';
 import 'package:note_master_app/Feature/Home/presentation/views/widgets/note_item.dart';
 
 import '../../../../Core/utils/icon_broken.dart';
@@ -102,7 +102,7 @@ class _HomeViewState extends State<HomeView> {
         backgroundColor: MyColors.myPink,
         onPressed: () {
           Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => const AddNote()),
+            MaterialPageRoute(builder: (context) => const AddNoteView()),
           );
         },
         child: const Icon(
