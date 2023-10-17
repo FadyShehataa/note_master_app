@@ -20,17 +20,17 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-
   @override
   void initState() {
     super.initState();
     BlocProvider.of<GetNotesCubit>(context).fetchAllNotes();
   }
 
+  final TextEditingController searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     ThemeCubit themeCubit = BlocProvider.of<ThemeCubit>(context, listen: true);
-    final TextEditingController searchController = TextEditingController();
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -41,15 +41,12 @@ class _HomeViewState extends State<HomeView> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Note Master',
-                    style: Styles.textStyle36,
-                  ),
+                  Text('Note Master', style: Styles.textStyle36),
                   IconButton(
                     onPressed: () {
                       themeCubit.changeTheme();
                       Box<NoteModel> notesBox = Hive.box<NoteModel>(kNotesBox);
-                      print('length = ${notesBox.values.toList().length}');
+                      debugPrint('length = ${notesBox.values.toList().length}');
                     },
                     icon: themeCubit.isDark
                         ? const Icon(Icons.light_mode, size: 28)
@@ -81,7 +78,7 @@ class _HomeViewState extends State<HomeView> {
               BlocBuilder<GetNotesCubit, GetNotesState>(
                 builder: (context, state) {
                   List<NoteModel> notes =
-                      BlocProvider.of<GetNotesCubit>(context).notes ?? [];
+                      BlocProvider.of<GetNotesCubit>(context).notes;
                   return Expanded(
                     child: ListView.separated(
                       itemBuilder: (context, index) => NoteItem(
@@ -100,15 +97,10 @@ class _HomeViewState extends State<HomeView> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: MyColors.myPink,
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => const AddNoteView()),
-          );
-        },
-        child: const Icon(
-          Icons.add,
-          size: 24,
+        onPressed: () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => const AddNoteView()),
         ),
+        child: const Icon(Icons.add, size: 24),
       ),
     );
   }

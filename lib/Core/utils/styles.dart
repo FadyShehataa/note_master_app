@@ -7,6 +7,13 @@ abstract class Styles {
     fontSize: 16,
     fontFamily: GoogleFonts.montserrat().fontFamily,
     color: MyColors.myWhite,
+    fontWeight: FontWeight.w500,
+  );
+
+  static final textStyle20 = TextStyle(
+    fontSize: 20,
+    fontFamily: GoogleFonts.montserrat().fontFamily,
+    color: MyColors.myWhite,
     fontWeight: FontWeight.w400,
   );
 
