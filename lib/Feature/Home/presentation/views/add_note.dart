@@ -6,6 +6,7 @@ import 'package:note_master_app/Core/utils/constants.dart';
 import 'package:note_master_app/Core/utils/my_colors.dart';
 import 'package:note_master_app/Feature/Home/data/models/note_model.dart';
 import 'package:note_master_app/Feature/Home/presentation/manager/add_note_cubit/add_note_cubit.dart';
+import 'package:note_master_app/Feature/Home/presentation/manager/get_notes_cubit/get_notes_cubit.dart';
 import 'package:note_master_app/Feature/Home/presentation/views/widgets/circle_item.dart';
 import 'package:note_master_app/Feature/Home/presentation/views/widgets/custom_text_form_field.dart';
 
@@ -22,6 +23,7 @@ class AddNote extends StatelessWidget {
     return BlocConsumer<AddNoteCubit, AddNoteState>(
       listener: (context, state) {
         if (state is AddNoteSuccess) {
+          BlocProvider.of<GetNotesCubit>(context).fetchAllNotes();
           Navigator.pop(context);
         } else if (state is AddNoteFailure) {
           ScaffoldMessenger.of(context).showSnackBar(

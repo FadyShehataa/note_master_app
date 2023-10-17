@@ -9,12 +9,6 @@ sealed class GetNotesState extends Equatable {
 
 final class GetNotesInitial extends GetNotesState {}
 
-// final class GetNotesLoading extends GetNotesState {}
+final class GetNotesLoading extends GetNotesState {}
 
-// final class GetNotesSuccess extends GetNotesState {}
-
-// final class GetNotesFailure extends GetNotesState {
-//   final String message;
-
-//   const GetNotesFailure({required this.message});
-// }
+final class GetNotesSuccess extends GetNotesState {}

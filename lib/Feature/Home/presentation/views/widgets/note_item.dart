@@ -5,10 +5,7 @@ import '../../../../../Core/utils/constants.dart';
 import '../../../../../Core/utils/styles.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({
-    super.key,
-    required this.noteModel,
-  });
+  const NoteItem({super.key, required this.noteModel});
 
   final NoteModel noteModel;
 
@@ -30,15 +27,9 @@ class NoteItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 8),
-              Text(
-                noteModel.description,
-                style: Styles.textStyle14,
-              ),
+              Text(noteModel.description, style: Styles.textStyle14),
               const SizedBox(height: 16),
-              Text(
-                "Created at ${noteModel.date}",
-                style: Styles.textStyle11,
-              ),
+              Text("Created at ${noteModel.date}", style: Styles.textStyle11),
             ],
           ),
         ),
