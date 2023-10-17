@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:note_master_app/Core/utils/constants.dart';
 import 'package:note_master_app/Core/utils/my_colors.dart';
 import 'package:note_master_app/Core/utils/styles.dart';
 import 'package:note_master_app/Feature/Home/presentation/manager/theme_cubit/theme_cubit.dart';
@@ -7,6 +9,7 @@ import 'package:note_master_app/Feature/Home/presentation/views/add_note.dart';
 import 'package:note_master_app/Feature/Home/presentation/views/widgets/note_item.dart';
 
 import '../../../../Core/utils/icon_broken.dart';
+import '../../data/models/note_model.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -30,7 +33,12 @@ class HomeView extends StatelessWidget {
                     style: Styles.textStyle36,
                   ),
                   IconButton(
-                    onPressed: () => themeCubit.changeTheme(),
+                    onPressed: () {
+                      themeCubit.changeTheme();
+                      Box<NoteModel> notesBox = Hive.box<NoteModel>(kNotesBox);
+                      print(
+                          'length = ${notesBox.values.toList().length}');
+                    },
                     icon: themeCubit.isDark
                         ? const Icon(Icons.light_mode, size: 28)
                         : const Icon(Icons.dark_mode, size: 28),
