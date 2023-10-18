@@ -8,7 +8,6 @@ import 'package:note_master_app/Feature/Home/presentation/views/widgets/custom_s
 import 'package:note_master_app/Feature/Home/presentation/views/widgets/home_view_app_bar.dart';
 import 'package:note_master_app/Feature/Home/presentation/views/widgets/home_view_body.dart';
 
-
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
@@ -45,9 +44,13 @@ class _HomeViewState extends State<HomeView> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: MyColors.myPink,
-        onPressed: () => Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const AddNoteView()),
-        ),
+        onPressed: () {
+          searchController.clear();
+          BlocProvider.of<GetNotesCubit>(context).searchNotes('');
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => const AddNoteView()),
+          );
+        },
         child: const Icon(Icons.add, size: 24),
       ),
     );

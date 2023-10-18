@@ -14,7 +14,7 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<GetNotesCubit, GetNotesState>(
       builder: (context, state) {
-        List<NoteModel> notes = BlocProvider.of<GetNotesCubit>(context).notes;
+        List<NoteModel> notes = BlocProvider.of<GetNotesCubit>(context).searchedNotes;
         return Expanded(
           child: ListView.separated(
             itemBuilder: (context, index) => NoteItem(

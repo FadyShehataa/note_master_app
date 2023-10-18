@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:note_master_app/Core/utils/my_colors.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../Core/utils/icon_broken.dart';
+import '../../manager/get_notes_cubit/get_notes_cubit.dart';
 
 class CustomSearchNote extends StatelessWidget {
   const CustomSearchNote({
@@ -34,6 +35,8 @@ class CustomSearchNote extends StatelessWidget {
         ),
         filled: true,
       ),
+      onChanged: (value) =>
+          BlocProvider.of<GetNotesCubit>(context).searchNotes(value),
     );
   }
 }
