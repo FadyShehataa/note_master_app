@@ -13,10 +13,12 @@ class AddNoteFooter extends StatelessWidget {
     super.key,
     required this.titleController,
     required this.descriptionController,
+    required this.formKey,
   });
 
   final TextEditingController titleController;
   final TextEditingController descriptionController;
+  final GlobalKey<FormState> formKey;
 
   @override
   Widget build(BuildContext context) {
@@ -32,13 +34,15 @@ class AddNoteFooter extends StatelessWidget {
               backgroundColor: MyColors.myWhite,
             ),
             onPressed: () {
-              NoteModel noteModel = NoteModel(
-                title: titleController.text,
-                description: descriptionController.text,
-                color: kColors[0].value,
-                date: DateFormat("d MMM yyyy").format(DateTime.now()),
-              );
-              BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+              if (formKey.currentState!.validate()) {
+                NoteModel noteModel = NoteModel(
+                  title: titleController.text,
+                  description: descriptionController.text,
+                  color: kColors[0].value,
+                  date: DateFormat("d MMM yyyy").format(DateTime.now()),
+                );
+                BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+              }
             },
             child: Text(
               'Add Note',

@@ -23,6 +23,15 @@ class AddNoteBody extends StatelessWidget {
           controller: titleController,
           hintText: 'Title',
           style: Styles.textStyle16.copyWith(fontWeight: FontWeight.w600),
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'Title is required';
+            } else if (value.length > 20) {
+              return 'Title is too long';
+            } else {
+              return null;
+            }
+          },
         ),
         const SizedBox(height: 20),
         Expanded(
@@ -31,6 +40,13 @@ class AddNoteBody extends StatelessWidget {
             hintText: 'Description',
             maxLines: 100,
             style: Styles.textStyle16,
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Description is required';
+              } else {
+                return null;
+              }
+            },
           ),
         ),
         const SizedBox(height: 20),

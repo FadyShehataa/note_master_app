@@ -17,6 +17,8 @@ class AddNoteView extends StatelessWidget {
     final TextEditingController titleController = TextEditingController();
     final TextEditingController descriptionController = TextEditingController();
 
+    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
     return BlocConsumer<AddNoteCubit, AddNoteState>(
       listener: (context, state) {
         if (state is AddNoteSuccess) {
@@ -37,20 +39,24 @@ class AddNoteView extends StatelessWidget {
             body: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: AddNoteBody(
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: AddNoteBody(
+                          titleController: titleController,
+                          descriptionController: descriptionController,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      AddNoteFooter(
                         titleController: titleController,
                         descriptionController: descriptionController,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    AddNoteFooter(
-                      titleController: titleController,
-                      descriptionController: descriptionController,
-                    )
-                  ],
+                        formKey: formKey,
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),

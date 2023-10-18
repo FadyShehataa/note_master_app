@@ -11,12 +11,14 @@ class CustomTextFormField extends StatelessWidget {
     this.maxLines = 1,
     this.hintText,
     this.style,
+    this.validator,
   });
 
   final TextEditingController? controller;
   final int? maxLines;
   final String? hintText;
   final TextStyle? style;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +37,19 @@ class CustomTextFormField extends StatelessWidget {
             width: 2,
           ),
         ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(defaultRadius),
+          borderSide: const BorderSide(
+            color: MyColors.myRed,
+          ),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(defaultRadius),
+          borderSide: const BorderSide(
+            color: MyColors.myRed,
+            width: 2,
+          ),
+        ),
         hintStyle: Styles.textStyle16,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(defaultRadius),
@@ -46,6 +61,7 @@ class CustomTextFormField extends StatelessWidget {
       ),
       style: style,
       cursorColor: MyColors.myWhite,
+      validator: validator,
     );
   }
 }
