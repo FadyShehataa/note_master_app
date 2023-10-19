@@ -24,4 +24,9 @@ class AddNoteCubit extends Cubit<AddNoteState> {
     }
     colorNote = kColors[0];
   }
+
+  changeColor() {
+    emit(ChangeColorAddNoteLoading());
+    emit(ChangeColorAddNoteSuccess());
+  }
 }

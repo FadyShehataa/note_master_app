@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:note_master_app/Core/utils/constants.dart';
+import 'package:note_master_app/Core/utils/my_colors.dart';
 import 'package:note_master_app/Core/utils/styles.dart';
 import 'package:note_master_app/Feature/Home/data/models/note_model.dart';
 import 'package:note_master_app/Feature/Home/presentation/manager/add_note_cubit/add_note_cubit.dart';
@@ -46,7 +47,14 @@ class NoteMasterApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        theme: themeCubit.isDark ? ThemeData.dark() : ThemeData.light(),
+        theme: themeCubit.isDark
+            ? ThemeData.dark()
+            : ThemeData.light().copyWith(
+                appBarTheme: const AppBarTheme(
+                  iconTheme: IconThemeData(color: MyColors.myBlack),
+                ),
+                scaffoldBackgroundColor: MyColors.myGrey,
+              ),
         builder: DevicePreview.appBuilder,
         home: AnimatedSplashScreen(
           splash: Text('Note Master', style: Styles.textStyle48),
@@ -56,6 +64,8 @@ class NoteMasterApp extends StatelessWidget {
           curve: Curves.easeOut,
           animationDuration: const Duration(milliseconds: 1500),
           pageTransitionType: PageTransitionType.rightToLeftWithFade,
+          backgroundColor:
+              themeCubit.isDark ? MyColors.myDarkGrey : MyColors.myGrey,
         ),
       ),
     );

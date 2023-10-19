@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:note_master_app/Core/utils/constants.dart';
 import 'package:note_master_app/Core/utils/my_colors.dart';
 import 'package:note_master_app/Feature/Home/presentation/manager/add_note_cubit/add_note_cubit.dart';
 import 'package:note_master_app/Feature/Home/presentation/manager/get_notes_cubit/get_notes_cubit.dart';
@@ -18,6 +19,7 @@ class AddNoteView extends StatelessWidget {
     final TextEditingController descriptionController = TextEditingController();
 
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+    // late final Color color;
 
     return BlocConsumer<AddNoteCubit, AddNoteState>(
       listener: (context, state) {
@@ -34,8 +36,12 @@ class AddNoteView extends StatelessWidget {
               const CircularProgressIndicator(color: MyColors.myBlack),
           inAsyncCall: state is AddNoteLoading ? true : false,
           child: Scaffold(
-            backgroundColor: MyColors.myOrange,
-            appBar: AppBar(elevation: 0, backgroundColor: Colors.transparent),
+            backgroundColor: BlocProvider.of<AddNoteCubit>(context).colorNote,
+            appBar: AppBar(
+              elevation: 0,
+              backgroundColor: Colors.transparent,
+              iconTheme: const IconThemeData(color: MyColors.myWhite),
+            ),
             body: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),

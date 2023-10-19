@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_master_app/Core/utils/my_colors.dart';
 
 import '../../../../../Core/utils/styles.dart';
 import 'custom_text_form_field.dart';
@@ -20,7 +21,10 @@ class AddNoteBody extends StatelessWidget {
         CustomTextFormField(
           controller: titleController,
           hintText: 'Title',
-          style: Styles.textStyle16.copyWith(fontWeight: FontWeight.w600),
+          style: Styles.textStyle16.copyWith(
+            fontWeight: FontWeight.w600,
+            color: MyColors.myWhite,
+          ),
           validator: (value) {
             if (value!.isEmpty) {
               return 'Title is required';
@@ -37,7 +41,7 @@ class AddNoteBody extends StatelessWidget {
             controller: descriptionController,
             hintText: 'Description',
             maxLines: 100,
-            style: Styles.textStyle16,
+            style: Styles.textStyle16.copyWith(color: MyColors.myWhite),
             validator: (value) {
               if (value!.isEmpty) {
                 return 'Description is required';

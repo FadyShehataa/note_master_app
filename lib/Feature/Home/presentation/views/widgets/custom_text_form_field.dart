@@ -26,7 +26,6 @@ class CustomTextFormField extends StatelessWidget {
       controller: controller,
       keyboardType: TextInputType.multiline,
       maxLines: maxLines,
-    
       decoration: InputDecoration(
         hintText: hintText,
         contentPadding:
@@ -51,7 +50,7 @@ class CustomTextFormField extends StatelessWidget {
             width: 2,
           ),
         ),
-        hintStyle: Styles.textStyle16,
+        hintStyle: Styles.textStyle16.copyWith(color: MyColors.myWhite),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(defaultRadius),
           borderSide: const BorderSide(

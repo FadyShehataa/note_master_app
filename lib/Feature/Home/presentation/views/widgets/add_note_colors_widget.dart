@@ -13,7 +13,14 @@ class AddNoteColorsWidget extends StatefulWidget {
 }
 
 class _AddNoteColorsWidgetState extends State<AddNoteColorsWidget> {
-  int currentIndex = 0;
+  late int currentIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    currentIndex =
+        kColors.indexOf(BlocProvider.of<AddNoteCubit>(context).colorNote);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +30,7 @@ class _AddNoteColorsWidgetState extends State<AddNoteColorsWidget> {
         itemBuilder: (context, index) => InkWell(
           onTap: () {
             BlocProvider.of<AddNoteCubit>(context).colorNote = kColors[index];
+            BlocProvider.of<AddNoteCubit>(context).changeColor();
             setState(() => currentIndex = index);
           },
           child: ColorItem(

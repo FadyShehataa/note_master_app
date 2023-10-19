@@ -18,3 +18,8 @@ final class AddNoteFailure extends AddNoteState {
 
   const AddNoteFailure({required this.message});
 }
+
+
+final class ChangeColorAddNoteLoading extends AddNoteState {}
+
+final class ChangeColorAddNoteSuccess extends AddNoteState {}

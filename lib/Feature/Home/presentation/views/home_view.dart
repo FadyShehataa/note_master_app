@@ -43,7 +43,7 @@ class _HomeViewState extends State<HomeView> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: MyColors.myPink,
+        backgroundColor: MyColors.myOrange,
         onPressed: () {
           searchController.clear();
           BlocProvider.of<GetNotesCubit>(context).searchNotes('');
