@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../Core/utils/constants.dart';
 import '../../../../../Core/utils/styles.dart';
-import 'circle_item.dart';
 import 'custom_text_form_field.dart';
+import 'note_colors_widget.dart';
 
 class AddNoteBody extends StatelessWidget {
   const AddNoteBody({
@@ -50,15 +49,7 @@ class AddNoteBody extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 20),
-        SizedBox(
-          height: 50,
-          child: ListView.separated(
-            itemBuilder: (context, index) => ColorItem(color: kColors[index]),
-            itemCount: kColors.length,
-            scrollDirection: Axis.horizontal,
-            separatorBuilder: (context, index) => const SizedBox(width: 10),
-          ),
-        ),
+        const NoteColorsWidget(),
       ],
     );
   }
