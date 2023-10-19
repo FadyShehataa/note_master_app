@@ -22,5 +22,6 @@ class AddNoteCubit extends Cubit<AddNoteState> {
     } on Exception catch (e) {
       emit(AddNoteFailure(message: e.toString()));
     }
+    colorNote = kColors[0];
   }
 }

@@ -72,7 +72,12 @@ class NoteItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 8),
-                  Text(noteModel.description, style: Styles.textStyle14),
+                  Text(
+                    noteModel.description,
+                    style: Styles.textStyle14,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                   const SizedBox(height: 16),
                   Align(
                     alignment: Alignment.centerRight,

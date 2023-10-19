@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../../Core/utils/styles.dart';
 import 'custom_text_form_field.dart';
-import 'note_colors_widget.dart';
 
 class AddNoteBody extends StatelessWidget {
   const AddNoteBody({
@@ -48,8 +47,6 @@ class AddNoteBody extends StatelessWidget {
             },
           ),
         ),
-        const SizedBox(height: 20),
-        const NoteColorsWidget(),
       ],
     );
   }

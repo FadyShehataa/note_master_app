@@ -1,31 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 
 import '../../../../../Core/utils/constants.dart';
 import '../../../../../Core/utils/my_colors.dart';
 import '../../../../../Core/utils/styles.dart';
 import '../../../data/models/note_model.dart';
-import '../../manager/add_note_cubit/add_note_cubit.dart';
-import 'add_note_colors_widget.dart';
+import '../../manager/get_notes_cubit/get_notes_cubit.dart';
+import 'edit_note_colors_widget.dart';
 
-class AddNoteFooter extends StatelessWidget {
-  const AddNoteFooter({
+class EditNoteFooter extends StatelessWidget {
+  const EditNoteFooter({
     super.key,
     required this.titleController,
     required this.descriptionController,
     required this.formKey,
+    required this.noteModel,
   });
 
   final TextEditingController titleController;
   final TextEditingController descriptionController;
   final GlobalKey<FormState> formKey;
 
+  final NoteModel noteModel;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const AddNoteColorsWidget(),
+        EditNoteColorsWidget(noteModel: noteModel),
         const SizedBox(height: 20),
         Row(
           children: [
@@ -40,17 +42,15 @@ class AddNoteFooter extends StatelessWidget {
                 ),
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
-                    NoteModel noteModel = NoteModel(
-                      title: titleController.text,
-                      description: descriptionController.text,
-                      color: kColors[0].value,
-                      date: DateFormat("d MMM yyyy").format(DateTime.now()),
-                    );
-                    BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+                    noteModel.title = titleController.text;
+                    noteModel.description = descriptionController.text;
+                    noteModel.save();
+                    BlocProvider.of<GetNotesCubit>(context).fetchAllNotes();
+                    Navigator.pop(context);
                   }
                 },
                 child: Text(
-                  'Add Note',
+                  'Edit Note',
                   style: Styles.textStyle14.copyWith(
                       color: MyColors.myOrange, fontWeight: FontWeight.w500),
                 ),

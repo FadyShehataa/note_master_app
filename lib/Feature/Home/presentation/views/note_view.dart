@@ -5,6 +5,7 @@ import 'package:note_master_app/Core/utils/styles.dart';
 import 'package:note_master_app/Feature/Home/data/models/note_model.dart';
 
 import '../manager/get_notes_cubit/get_notes_cubit.dart';
+import 'edit_note_view.dart';
 
 class NoteView extends StatelessWidget {
   const NoteView({super.key, required this.noteModel});
@@ -24,7 +25,12 @@ class NoteView extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              // TODO : navigate to edit screen
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => EditNoteView(noteModel: noteModel),
+                ),
+              );
             },
             icon: const Icon(IconBroken.Edit),
           ),

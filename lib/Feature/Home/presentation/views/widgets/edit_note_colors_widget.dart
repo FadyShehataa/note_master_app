@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:note_master_app/Feature/Home/data/models/note_model.dart';
 
 import '../../../../../Core/utils/constants.dart';
-import '../../manager/add_note_cubit/add_note_cubit.dart';
 import 'circle_item.dart';
 
-class NoteColorsWidget extends StatefulWidget {
-  const NoteColorsWidget({super.key});
+class EditNoteColorsWidget extends StatefulWidget {
+  const EditNoteColorsWidget({super.key, required this.noteModel});
+
+  final NoteModel noteModel;
 
   @override
-  State<NoteColorsWidget> createState() => _NoteColorsWidgetState();
+  State<EditNoteColorsWidget> createState() => _EditNoteColorsWidgetState();
 }
 
-class _NoteColorsWidgetState extends State<NoteColorsWidget> {
-  int currentIndex = 0;
+class _EditNoteColorsWidgetState extends State<EditNoteColorsWidget> {
+  late int currentIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    currentIndex = kColors.indexOf(Color(widget.noteModel.color));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +29,7 @@ class _NoteColorsWidgetState extends State<NoteColorsWidget> {
       child: ListView.separated(
         itemBuilder: (context, index) => InkWell(
           onTap: () {
-            BlocProvider.of<AddNoteCubit>(context).colorNote = kColors[index];
+            widget.noteModel.color = kColors[index].value;
             setState(() => currentIndex = index);
           },
           child: ColorItem(
