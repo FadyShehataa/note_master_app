@@ -16,7 +16,7 @@ class GetNotesCubit extends Cubit<GetNotesState> {
   fetchAllNotes() {
     emit(GetNotesLoading());
     Box<NoteModel> notesBox = Hive.box<NoteModel>(kNotesBox);
-    notes = notesBox.values.toList();
+    notes = notesBox.values.toList().reversed.toList();
     searchedNotes = notes;
     emit(GetNotesSuccess());
   }

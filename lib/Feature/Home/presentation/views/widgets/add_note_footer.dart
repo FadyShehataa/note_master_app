@@ -52,7 +52,9 @@ class AddNoteFooter extends StatelessWidget {
                 child: Text(
                   'Add Note',
                   style: Styles.textStyle14.copyWith(
-                      color: MyColors.myOrange, fontWeight: FontWeight.w500),
+                    color: BlocProvider.of<AddNoteCubit>(context).colorNote,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
