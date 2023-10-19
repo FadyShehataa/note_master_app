@@ -24,8 +24,9 @@ class CustomTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      keyboardType: TextInputType.text,
+      keyboardType: TextInputType.multiline,
       maxLines: maxLines,
+    
       decoration: InputDecoration(
         hintText: hintText,
         contentPadding:
