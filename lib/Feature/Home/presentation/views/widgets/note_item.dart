@@ -6,6 +6,7 @@ import 'package:note_master_app/Feature/Home/data/models/note_model.dart';
 import '../../../../../Core/utils/constants.dart';
 import '../../../../../Core/utils/styles.dart';
 import '../../manager/get_notes_cubit/get_notes_cubit.dart';
+import '../note_view.dart';
 
 class NoteItem extends StatelessWidget {
   const NoteItem({super.key, required this.noteModel});
@@ -46,32 +47,42 @@ class NoteItem extends StatelessWidget {
         noteModel.delete();
         BlocProvider.of<GetNotesCubit>(context).fetchAllNotes();
       },
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(defaultRadius),
-        ),
-        color: Color(noteModel.color),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 6),
-          child: ListTile(
-            title: Text(
-              noteModel.title,
-              style: Styles.textStyle16.copyWith(fontWeight: FontWeight.w600),
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => NoteView(noteModel: noteModel),
             ),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 8),
-                Text(noteModel.description, style: Styles.textStyle14),
-                const SizedBox(height: 16),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    "Created at ${noteModel.date}",
-                    style: Styles.textStyle11,
+          );
+        },
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(defaultRadius),
+          ),
+          color: Color(noteModel.color),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 6),
+            child: ListTile(
+              title: Text(
+                noteModel.title,
+                style: Styles.textStyle16.copyWith(fontWeight: FontWeight.w600),
+              ),
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 8),
+                  Text(noteModel.description, style: Styles.textStyle14),
+                  const SizedBox(height: 16),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      "Created at ${noteModel.date}",
+                      style: Styles.textStyle11,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

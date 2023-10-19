@@ -6,28 +6,35 @@ abstract class Styles {
   static final textStyle16 = TextStyle(
     fontSize: 16,
     fontFamily: GoogleFonts.montserrat().fontFamily,
-    color: MyColors.myWhite,
+    // color: MyColors.myWhite,
     fontWeight: FontWeight.w500,
   );
 
   static final textStyle20 = TextStyle(
     fontSize: 20,
     fontFamily: GoogleFonts.montserrat().fontFamily,
-    color: MyColors.myWhite,
+    // color: MyColors.myWhite,
+    fontWeight: FontWeight.w400,
+  );
+
+  static final textStyle26 = TextStyle(
+    fontSize: 26,
+    fontFamily: GoogleFonts.bebasNeue().fontFamily,
+    // color: MyColors.myWhite,
     fontWeight: FontWeight.w400,
   );
 
   static final textStyle14 = TextStyle(
     fontSize: 14,
     fontFamily: GoogleFonts.montserrat().fontFamily,
-    color: MyColors.myWhite,
+    // color: MyColors.myWhite,
     fontWeight: FontWeight.w400,
   );
 
   static final textStyle11 = TextStyle(
     fontSize: 11,
     fontFamily: GoogleFonts.montserrat().fontFamily,
-    color: MyColors.myWhite,
+    // color: MyColors.myWhite,
     fontWeight: FontWeight.w400,
   );
 
