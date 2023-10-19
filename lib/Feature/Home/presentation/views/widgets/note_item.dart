@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note_master_app/Core/utils/my_colors.dart';
 import 'package:note_master_app/Feature/Home/data/models/note_model.dart';
 
 import '../../../../../Core/utils/constants.dart';
 import '../../../../../Core/utils/styles.dart';
+import '../../manager/get_notes_cubit/get_notes_cubit.dart';
 
 class NoteItem extends StatelessWidget {
   const NoteItem({super.key, required this.noteModel});
@@ -12,8 +14,9 @@ class NoteItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Dismissible( // TODO: refactor this widget to a separate file
-      key: const Key('noteModel.id.toString()'),
+    return Dismissible(
+      // TODO: refactor this widget to a separate file
+      key: Key(DateTime.now().toString()),
       direction: DismissDirection.endToStart,
       background: Card(
         shape: RoundedRectangleBorder(
@@ -39,7 +42,10 @@ class NoteItem extends StatelessWidget {
           ),
         ),
       ),
-      onDismissed: (_) => noteModel.delete(),
+      onDismissed: (_) {
+        noteModel.delete();
+        BlocProvider.of<GetNotesCubit>(context).fetchAllNotes();
+      },
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(defaultRadius),
