@@ -48,12 +48,21 @@ class NoteMasterApp extends StatelessWidget {
       ],
       child: MaterialApp(
         theme: themeCubit.isDark
-            ? ThemeData.dark()
+            ? ThemeData.dark().copyWith(
+                colorScheme: ThemeData().colorScheme.copyWith(
+                      primary: MyColors.myOrange,
+                      brightness: Brightness.dark,
+                    ),
+              )
             : ThemeData.light().copyWith(
                 appBarTheme: const AppBarTheme(
                   iconTheme: IconThemeData(color: MyColors.myBlack),
                 ),
                 scaffoldBackgroundColor: MyColors.myGrey,
+                colorScheme: ThemeData().colorScheme.copyWith(
+                      primary: MyColors.myOrange,
+                      brightness: Brightness.light,
+                    ),
               ),
         builder: DevicePreview.appBuilder,
         home: AnimatedSplashScreen(
