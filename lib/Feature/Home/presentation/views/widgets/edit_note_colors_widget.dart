@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note_master_app/Feature/Home/data/models/note_model.dart';
 
 import '../../../../../Core/utils/constants.dart';
+import '../../manager/add_note_cubit/add_note_cubit.dart';
 import 'circle_item.dart';
 
 class EditNoteColorsWidget extends StatefulWidget {
@@ -19,7 +21,13 @@ class _EditNoteColorsWidgetState extends State<EditNoteColorsWidget> {
   @override
   void initState() {
     super.initState();
-    currentIndex = kColors.indexOf(Color(widget.noteModel.color));
+
+    for (int i = 0; i < kColors.length; i++) {
+      if (BlocProvider.of<AddNoteCubit>(context).editColor.value ==
+          kColors[i].value) {
+        currentIndex = i;
+      }
+    }
   }
 
   @override
@@ -30,6 +38,8 @@ class _EditNoteColorsWidgetState extends State<EditNoteColorsWidget> {
         itemBuilder: (context, index) => InkWell(
           onTap: () {
             widget.noteModel.color = kColors[index].value;
+            BlocProvider.of<AddNoteCubit>(context).editColor = kColors[index];
+            BlocProvider.of<AddNoteCubit>(context).changeColor();
             setState(() => currentIndex = index);
           },
           child: ColorItem(

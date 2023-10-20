@@ -1,30 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:note_master_app/Core/utils/my_colors.dart';
 import 'package:note_master_app/Feature/Home/data/models/note_model.dart';
 import 'package:note_master_app/Feature/Home/presentation/manager/add_note_cubit/add_note_cubit.dart';
 import 'package:note_master_app/Feature/Home/presentation/views/widgets/add_note_body.dart';
 import 'package:note_master_app/Feature/Home/presentation/views/widgets/edit_note_footer.dart';
 
-
-class EditNoteView extends StatelessWidget {
+class EditNoteView extends StatefulWidget {
   const EditNoteView({super.key, required this.noteModel});
 
   final NoteModel noteModel;
 
   @override
-  Widget build(BuildContext context) {
-    final TextEditingController titleController =
-        TextEditingController(text: noteModel.title);
-    final TextEditingController descriptionController =
-        TextEditingController(text: noteModel.description);
+  State<EditNoteView> createState() => _EditNoteViewState();
+}
 
+class _EditNoteViewState extends State<EditNoteView> {
+  late final TextEditingController titleController;
+
+  late final TextEditingController descriptionController;
+
+  @override
+  void initState() {
+    super.initState();
+    titleController = TextEditingController(text: widget.noteModel.title);
+    descriptionController =
+        TextEditingController(text: widget.noteModel.description);
+
+    BlocProvider.of<AddNoteCubit>(context).editColor =
+        Color(widget.noteModel.color);
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
     return BlocBuilder<AddNoteCubit, AddNoteState>(
       builder: (context, state) {
         return Scaffold(
-          backgroundColor: MyColors.myOrange,
+          backgroundColor: BlocProvider.of<AddNoteCubit>(context).editColor,
           appBar: AppBar(elevation: 0, backgroundColor: Colors.transparent),
           body: SafeArea(
             child: Padding(
@@ -44,7 +57,7 @@ class EditNoteView extends StatelessWidget {
                       titleController: titleController,
                       descriptionController: descriptionController,
                       formKey: formKey,
-                      noteModel: noteModel,
+                      noteModel: widget.noteModel,
                     )
                   ],
                 ),

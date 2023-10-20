@@ -5,6 +5,7 @@ import '../../../../../Core/utils/constants.dart';
 import '../../../../../Core/utils/my_colors.dart';
 import '../../../../../Core/utils/styles.dart';
 import '../../../data/models/note_model.dart';
+import '../../manager/add_note_cubit/add_note_cubit.dart';
 import '../../manager/get_notes_cubit/get_notes_cubit.dart';
 import 'edit_note_colors_widget.dart';
 
@@ -52,7 +53,8 @@ class EditNoteFooter extends StatelessWidget {
                 child: Text(
                   'Edit Note',
                   style: Styles.textStyle14.copyWith(
-                      color: MyColors.myOrange, fontWeight: FontWeight.w500),
+                      color: BlocProvider.of<AddNoteCubit>(context).editColor,
+                      fontWeight: FontWeight.w500),
                 ),
               ),
             ),
