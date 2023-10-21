@@ -60,6 +60,7 @@ class AddNoteFooter extends StatelessWidget {
             ),
           ],
         ),
+        const SizedBox(height: 20),
       ],
     );
   }

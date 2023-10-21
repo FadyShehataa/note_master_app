@@ -22,11 +22,15 @@ void main() async {
   await Hive.openBox<NoteModel>(kNotesBox);
 
   runApp(
-    DevicePreview(
-      builder: (context) => BlocProvider(
-        create: (_) => ThemeCubit(),
-        child: const NoteMasterApp(),
-      ),
+    // DevicePreview(
+    //   builder: (context) => BlocProvider(
+    //     create: (_) => ThemeCubit(),
+    //     child: const NoteMasterApp(),
+    //   ),
+    // ),
+    BlocProvider(
+      create: (_) => ThemeCubit(),
+      child: const NoteMasterApp(),
     ),
   );
 }
@@ -47,8 +51,12 @@ class NoteMasterApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: themeCubit.isDark
             ? ThemeData.dark().copyWith(
+                appBarTheme: const AppBarTheme(
+                  iconTheme: IconThemeData(color: MyColors.myWhite),
+                ),
                 colorScheme: ThemeData().colorScheme.copyWith(
                       primary: MyColors.myOrange,
                       brightness: Brightness.dark,
