@@ -38,8 +38,7 @@ The app contains four main screens:
 3. Note Details Screen: Displays detailed information about each note, including title, description & Edit icon to Edit note, and delete icon to delete the note
 4. Create Note Screen: To create new note included title, description, color
 
-![Screenshot_20231030_201655](https://github.com/FadyShehataa/note_master_app/assets/102903468/c84f9a42-e50f-40b2-bd50-372ea9e28378)
-![Screenshot_20231030_201650](https://github.com/FadyShehataa/note_master_app/assets/102903468/7c433b69-7f19-409d-a9a9-72a310b2c7da)
+![Screenshot_20231030_201655](https://github.com/FadyShehataa/note_master_app/assets/102903468/c84f9a42-e50f-40b2-bd50-372ea9e28378 width="48")     ![Screenshot_20231030_201650](https://github.com/FadyShehataa/note_master_app/assets/102903468/7c433b69-7f19-409d-a9a9-72a310b2c7da)
 ![Screenshot_20231030_201610](https://github.com/FadyShehataa/note_master_app/assets/102903468/a769555a-7035-45b1-a979-d2370906df4f)
 ![Screenshot_20231030_201554](https://github.com/FadyShehataa/note_master_app/assets/102903468/2c467843-6a0d-4bdc-bda8-5b97beba193d)
 ![Screenshot_20231030_201546](https://github.com/FadyShehataa/note_master_app/assets/102903468/61f91eb4-6504-4f31-b285-987eeb9b4687)
