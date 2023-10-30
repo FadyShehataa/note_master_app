@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:note_master_app/Core/utils/icon_broken.dart';
-import 'package:note_master_app/Core/utils/styles.dart';
-import 'package:note_master_app/Feature/Home/data/models/note_model.dart';
+import '../../../../Core/utils/icon_broken.dart';
+import '../../../../Core/utils/styles.dart';
+import '../../data/models/note_model.dart';
 
 import '../manager/get_notes_cubit/get_notes_cubit.dart';
 import 'edit_note_view.dart';

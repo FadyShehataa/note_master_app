@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:note_master_app/Core/utils/my_colors.dart';
+import '../../../../../Core/utils/my_colors.dart';
 
 import '../../../../../Core/utils/styles.dart';
 import 'custom_text_form_field.dart';

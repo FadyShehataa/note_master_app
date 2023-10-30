@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:note_master_app/Core/utils/my_colors.dart';
+import '../../../../../Core/utils/my_colors.dart';
 
 import '../../../../../Core/utils/assets_data.dart';
 import '../../../../../Core/utils/styles.dart';

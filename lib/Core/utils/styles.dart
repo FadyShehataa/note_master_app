@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:note_master_app/Core/utils/my_colors.dart';
+import 'my_colors.dart';
 
 abstract class Styles {
   static final textStyle16 = TextStyle(

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:note_master_app/Feature/Home/data/models/note_model.dart';
-import 'package:note_master_app/Feature/Home/presentation/manager/add_note_cubit/add_note_cubit.dart';
-import 'package:note_master_app/Feature/Home/presentation/views/widgets/add_note_body.dart';
-import 'package:note_master_app/Feature/Home/presentation/views/widgets/edit_note_footer.dart';
+import '../../data/models/note_model.dart';
+import '../manager/add_note_cubit/add_note_cubit.dart';
+import 'widgets/add_note_body.dart';
+import 'widgets/edit_note_footer.dart';
 
 class EditNoteView extends StatefulWidget {
   const EditNoteView({super.key, required this.noteModel});

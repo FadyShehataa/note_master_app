@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:note_master_app/Core/utils/constants.dart';
+import '../../../../../Core/utils/constants.dart';
 
 import '../../../../../Core/utils/my_colors.dart';
 import '../../../../../Core/utils/styles.dart';

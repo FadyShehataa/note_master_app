@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:note_master_app/Core/utils/my_colors.dart';
-import 'package:note_master_app/Feature/Home/presentation/manager/get_notes_cubit/get_notes_cubit.dart';
-import 'package:note_master_app/Feature/Home/presentation/manager/theme_cubit/theme_cubit.dart';
-import 'package:note_master_app/Feature/Home/presentation/views/add_note_view.dart';
-import 'package:note_master_app/Feature/Home/presentation/views/widgets/custom_search_note.dart';
-import 'package:note_master_app/Feature/Home/presentation/views/widgets/home_view_app_bar.dart';
-import 'package:note_master_app/Feature/Home/presentation/views/widgets/home_view_body.dart';
+import '../../../../Core/utils/my_colors.dart';
+import '../manager/get_notes_cubit/get_notes_cubit.dart';
+import '../manager/theme_cubit/theme_cubit.dart';
+import 'add_note_view.dart';
+import 'widgets/custom_search_note.dart';
+import 'widgets/home_view_app_bar.dart';
+import 'widgets/home_view_body.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});

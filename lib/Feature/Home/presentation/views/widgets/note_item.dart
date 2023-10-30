@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:note_master_app/Core/utils/my_colors.dart';
-import 'package:note_master_app/Feature/Home/data/models/note_model.dart';
+import '../../../../../Core/utils/my_colors.dart';
+import '../../../data/models/note_model.dart';
 
 import '../../../../../Core/utils/constants.dart';
 import '../../../../../Core/utils/styles.dart';

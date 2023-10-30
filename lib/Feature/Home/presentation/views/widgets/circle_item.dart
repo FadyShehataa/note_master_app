@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:note_master_app/Core/utils/my_colors.dart';
+import '../../../../../Core/utils/my_colors.dart';
 
 class ColorItem extends StatelessWidget {
   const ColorItem({super.key, this.color, required this.isSelected});
