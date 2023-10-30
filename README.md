@@ -17,18 +17,18 @@ https://github.com/FadyShehataa/note_master_app/assets/102903468/593b87d5-1490-4
 - User-friendly and intuitive interface
 - support dark, light theme
 
-## Architecture and Design Patterns
+## Enhancing Software Development with:
 
 The app follows industry-standard architecture and design patterns to ensure scalability, maintainability, and readability of code. These include:
-- Bloc pattern for state management
-- MVVM architecture for separation of concerns
-- Object-oriented programming concepts for better code organization
-- SOLID principles for scalable and maintainable code
-- Singleton design pattern for efficient use of resources and improved performance
-- Dependency injection for managing dependencies between classes
-- Clean code practices for readability and maintainability
-- Animations to provide a smooth user experience
-- Hive local storage
+- Bloc Pattern: Efficient State Management
+- MVVM Architecture: Separation of Concerns
+- Object-Oriented Programming: Organizing Code Effectively
+- SOLID Principles: Scalable and Maintainable Code
+- Singleton Design Pattern: Resource Efficiency & Performance
+- Dependency Injection: Managing Class Dependencies
+- Clean Code Practices: Readability & Maintainability
+- Smooth User Experience: Utilizing Animations
+- Hive Local Storage: Efficient Data Persistence
 
 ## Screens
 
