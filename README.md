@@ -27,7 +27,7 @@ The app follows industry-standard architecture and design patterns to ensure sca
 
 ## Screens
 
-The app contains three main screens:
+The app contains four main screens:
 
 1. Splash Screen: Displays "Note Master" with animation while the app loads
 2. Home Screen: Displays notes & Search bar to search for a specific note  
