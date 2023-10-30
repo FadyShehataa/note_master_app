@@ -4,7 +4,8 @@ The Note Master App is a powerful and intuitive note-taking application develope
 
 Demo: https://www.youtube.com/watch?v=Dd7Zpytxw6U
 
-https://github.com/FadyShehataa/note_master_app/assets/102903468/b27165bb-91fb-432e-9dc3-e43f25771257
+https://github.com/FadyShehataa/note_master_app/assets/102903468/593b87d5-1490-4d26-918b-960adb668e72
+
 
 ## Key Features
 
@@ -38,14 +39,7 @@ The app contains four main screens:
 3. Note Details Screen: Displays detailed information about each note, including title, description & Edit icon to Edit note, and delete icon to delete the note
 4. Create Note Screen: To create new note included title, description, color
 
-![Screenshot_20231030_201655](https://github.com/FadyShehataa/note_master_app/assets/102903468/c84f9a42-e50f-40b2-bd50-372ea9e28378){:height="50px"}     ![Screenshot_20231030_201650](https://github.com/FadyShehataa/note_master_app/assets/102903468/7c433b69-7f19-409d-a9a9-72a310b2c7da){:width="300px"}
-![Screenshot_20231030_201610](https://github.com/FadyShehataa/note_master_app/assets/102903468/a769555a-7035-45b1-a979-d2370906df4f){:width="100px"}
-![Screenshot_20231030_201554](https://github.com/FadyShehataa/note_master_app/assets/102903468/2c467843-6a0d-4bdc-bda8-5b97beba193d){:width="150px"}
-![Screenshot_20231030_201546](https://github.com/FadyShehataa/note_master_app/assets/102903468/61f91eb4-6504-4f31-b285-987eeb9b4687){:width="200px"}
-![Screenshot_20231030_201722](https://github.com/FadyShehataa/note_master_app/assets/102903468/591be51d-baf9-473c-b847-c8d36ecc85b5){:width="300px"}
-![Screenshot_20231030_201715](https://github.com/FadyShehataa/note_master_app/assets/102903468/eea49147-3d6f-481e-9055-1b396389d6a2){:width="300px"}
-![Screenshot_20231030_201708](https://github.com/FadyShehataa/note_master_app/assets/102903468/a28ad70e-75f5-4674-9fbc-64a88c2c058a){:width="300px"}
-![Screenshot_20231030_201658](https://github.com/FadyShehataa/note_master_app/assets/102903468/3906e37c-4ed8-4a19-957c-7d1a9b94cc85){:width="300px"}
+![Copy of Splash View (1)](https://github.com/FadyShehataa/note_master_app/assets/102903468/60b774bc-5898-4c62-bc33-ef4f57275462)
 
 
 ## Installation
